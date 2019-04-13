@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Lirik Lagu</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="content_title">Favorite Added</string>
+    <string name="content_text">Your favorite lyric added</string>
+    <string name="subtext">Lirik Lagu</string>
+</resources>
