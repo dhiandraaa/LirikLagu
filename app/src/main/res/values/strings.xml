@@ -10,4 +10,10 @@
     <string name="content_title">Favorite Added</string>
     <string name="content_text">Your favorite lyric added</string>
     <string name="subtext">Lirik Lagu</string>
+
+    <string name="title">Judul Lagu</string>
+    <string name="description">Lirik</string>
+    <string name="submit">Submit</string>
+    <string name="delete">Hapus</string>
+    <string name="date">Date</string>
 </resources>

@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity
     public void sendNotif(View view) {
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_menu_camera)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_menu_camera))
+                .setSmallIcon(R.drawable.ic_favorite_black_24dp)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_favorite_black_24dp))
                 .setContentTitle(getResources().getString(R.string.content_title))
                 .setContentText(getResources().getString(R.string.content_text))
                 .setSubText(getResources().getString(R.string.subtext))
@@ -117,20 +117,20 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent favorit = new Intent(MainActivity.this, DaftarSayaActivity.class);
-            startActivity(favorit);
+
         } else if (id == R.id.nav_gallery) {
             Intent favorit = new Intent(MainActivity.this, FavoriteActivity.class);
             startActivity(favorit);
         } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+            Intent favorit = new Intent(MainActivity.this, DaftarSayaActivity.class);
+            startActivity(favorit);
+        } /* else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
             finish();
-        }
+        } */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

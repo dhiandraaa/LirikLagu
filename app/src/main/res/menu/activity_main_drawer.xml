@@ -15,12 +15,13 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
+            android:title="Daftar Lirik Saya" />
+    </group>
+        <!-- <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />
-    </group>
+
 
     <item android:title="Communicate">
         <menu>
@@ -33,6 +34,6 @@
                 android:icon="@drawable/ic_menu_send"
                 android:title="Keluar" />
         </menu>
-    </item>
+    </item> -->
 
 </menu>
