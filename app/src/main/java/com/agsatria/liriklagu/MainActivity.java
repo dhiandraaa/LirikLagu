@@ -129,13 +129,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             Intent favorit = new Intent(MainActivity.this, DaftarSayaActivity.class);
             startActivity(favorit);
-        } /* else if (id == R.id.nav_manage) {
-
+        }  /*else if (id == R.id.nav_out) {
+            finish();
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } */ else if (id == R.id.nav_send) {
             finish();
-        } */
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

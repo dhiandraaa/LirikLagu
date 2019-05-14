@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import static com.agsatria.liriklagu.NoteAddUpdateActivity.REQUEST_UPDATE;
 
 public class DaftarSayaActivity extends AppCompatActivity implements View.OnClickListener, LoadNotesCallback {
-
     private RecyclerView rvNotes;
     private ProgressBar progressBar;
     private FloatingActionButton fabAdd;
@@ -35,24 +34,21 @@ public class DaftarSayaActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_saya);
 
-        setTitle("Daftar Saya"); //type 2
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //hanya menampilkan tombol back pada actionbar
-
-        // start
-
         if (getSupportActionBar() != null)
             getSupportActionBar().setTitle("Daftar Saya");
+
         rvNotes = findViewById(R.id.rv_notes);
         rvNotes.setLayoutManager(new LinearLayoutManager(this));
         rvNotes.setHasFixedSize(true);
+
         noteHelper = NoteHelper.getInstance(getApplicationContext());
+
         noteHelper.open();
+
         progressBar = findViewById(R.id.progressbar);
         fabAdd = findViewById(R.id.fab_add);
         fabAdd.setOnClickListener(this);
+
         adapter = new NoteAdapter(this);
         rvNotes.setAdapter(adapter);
 
@@ -64,27 +60,20 @@ public class DaftarSayaActivity extends AppCompatActivity implements View.OnClic
                 adapter.setListNotes(list);
             }
         }
-
-        //end
-    }
-
-    public boolean onSupportNavigateUp() { //method yg bersal dari AppCompat dan butuh tombol back di ActionBar
-        onBackPressed();
-        return true;
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.fab_add) {
-            Intent intent = new Intent(DaftarSayaActivity.this, NoteAddUpdateActivity.class);
-            startActivityForResult(intent, NoteAddUpdateActivity.REQUEST_ADD);
-        }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(EXTRA_STATE, adapter.getListNotes());
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.fab_add) {
+            Intent intent = new Intent(DaftarSayaActivity.this, NoteAddUpdateActivity.class);
+            startActivityForResult(intent, NoteAddUpdateActivity.REQUEST_ADD);
+        }
     }
 
     @Override
@@ -113,19 +102,21 @@ public class DaftarSayaActivity extends AppCompatActivity implements View.OnClic
         }
 
         @Override
-        protected ArrayList<Note> doInBackground(Void... voids) {
-            return weakNoteHelper.get().getAllNotes();
-        }
-
-        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             weakCallback.get().preExecute();
         }
 
         @Override
+        protected ArrayList<Note> doInBackground(Void... voids) {
+
+            return weakNoteHelper.get().getAllNotes();
+        }
+
+        @Override
         protected void onPostExecute(ArrayList<Note> notes) {
             super.onPostExecute(notes);
+
             weakCallback.get().postExecute(notes);
         }
     }
@@ -140,21 +131,21 @@ public class DaftarSayaActivity extends AppCompatActivity implements View.OnClic
                     Note note = data.getParcelableExtra(NoteAddUpdateActivity.EXTRA_NOTE);
                     adapter.addItem(note);
                     rvNotes.smoothScrollToPosition(adapter.getItemCount() - 1);
-                    showSnackbarMessage("Satu item berhasil ditambahkan");
+                    showSnackbarMessage("Draft berhasil ditambahkan");
                 }
-                else if (requestCode == REQUEST_UPDATE) {
-                    if (resultCode == NoteAddUpdateActivity.RESULT_UPDATE) {
-                        Note note = data.getParcelableExtra(NoteAddUpdateActivity.EXTRA_NOTE);
-                        int position = data.getIntExtra(NoteAddUpdateActivity.EXTRA_POSITION, 0);
-                        adapter.updateItem(position, note);
-                        rvNotes.smoothScrollToPosition(position);
-                        showSnackbarMessage("Satu item berhasil diubah");
-                    }
-                    else if (resultCode == NoteAddUpdateActivity.RESULT_DELETE) {
-                        int position = data.getIntExtra(NoteAddUpdateActivity.EXTRA_POSITION, 0);
-                        adapter.removeItem(position);
-                        showSnackbarMessage("Satu item berhasil dihapus");
-                    }
+            }
+            else if (requestCode == REQUEST_UPDATE) {
+                if (resultCode == NoteAddUpdateActivity.RESULT_UPDATE) {
+                    Note note = data.getParcelableExtra(NoteAddUpdateActivity.EXTRA_NOTE);
+                    int position = data.getIntExtra(NoteAddUpdateActivity.EXTRA_POSITION, 0);
+                    adapter.updateItem(position, note);
+                    rvNotes.smoothScrollToPosition(position);
+                    showSnackbarMessage("Lirik berhasil diubah");
+                }
+                else if (resultCode == NoteAddUpdateActivity.RESULT_DELETE) {
+                    int position = data.getIntExtra(NoteAddUpdateActivity.EXTRA_POSITION, 0);
+                    adapter.removeItem(position);
+                    showSnackbarMessage("Lirik berhasil dihapus");
                 }
             }
         }
@@ -169,5 +160,4 @@ public class DaftarSayaActivity extends AppCompatActivity implements View.OnClic
     private void showSnackbarMessage(String message) {
         Snackbar.make(rvNotes, message, Snackbar.LENGTH_SHORT).show();
     }
-
 }
