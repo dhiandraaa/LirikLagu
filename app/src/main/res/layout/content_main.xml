@@ -4,25 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A0D9F6"
+    android:padding="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    android:padding="8dp"
     tools:showIn="@layout/app_bar_main">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome!"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:text="Welcome!" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Putar lagumu dan nyanyikan tanpa ragu"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_img_lagu"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginRight="24dp"
+            android:background="#ccffffff"
+            android:foreground="?attr/selectableItemBackground"
+            android:scaleType="fitXY"
+            android:src="@drawable/musik" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="300dp"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_img_favorit"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginRight="40dp"
+            android:background="#ccffffff"
+            android:foreground="?attr/selectableItemBackground"
+            android:scaleType="fitXY"
+            android:src="@drawable/about" />
+
+        <ImageButton
+            android:id="@+id/btn_img_daftar"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginRight="30dp"
+            android:background="#ccffffff"
+            android:foreground="?attr/selectableItemBackground"
+            android:scaleType="fitXY"
+            android:src="@drawable/help" />
+    </LinearLayout>
 
 
     <Button
+        android:id="@+id/notif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Favorit"
-        android:id="@+id/notif"
         android:layout_alignParentBottom="true"
-        android:onClick="sendNotif"/>
+        android:layout_marginBottom="16dp"
+        android:onClick="sendNotif"
+        android:text="Favorit" />
 
 </RelativeLayout>
