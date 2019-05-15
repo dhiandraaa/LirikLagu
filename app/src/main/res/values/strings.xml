@@ -16,4 +16,6 @@
     <string name="submit">Submit</string>
     <string name="delete">Hapus</string>
     <string name="date">Date</string>
+    <string name="appwidget_text">Judul Lagu</string>
+    <string name="add_widget">Add widget</string>
 </resources>
