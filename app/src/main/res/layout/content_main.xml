@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Welcome!" />
+        android:text="Selamat Datang"
+        android:textColor="#000000"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +44,7 @@
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginRight="24dp"
-            android:background="#ccffffff"
+            android:background="#A0D9F6"
             android:foreground="?attr/selectableItemBackground"
             android:scaleType="fitXY"
             android:src="@drawable/musik" />
@@ -60,8 +61,8 @@
             android:id="@+id/btn_img_favorit"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:layout_marginRight="40dp"
-            android:background="#ccffffff"
+            android:layout_marginRight="70dp"
+            android:background="#A0D9F6"
             android:foreground="?attr/selectableItemBackground"
             android:scaleType="fitXY"
             android:src="@drawable/about" />
@@ -71,20 +72,20 @@
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginRight="30dp"
-            android:background="#ccffffff"
+            android:background="#A0D9F6"
             android:foreground="?attr/selectableItemBackground"
             android:scaleType="fitXY"
             android:src="@drawable/help" />
     </LinearLayout>
 
 
-    <Button
+    <!-- <Button
         android:id="@+id/notif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"
         android:onClick="sendNotif"
-        android:text="Favorit" />
+        android:text="Favorit" /> -->
 
 </RelativeLayout>

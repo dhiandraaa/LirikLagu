@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity
 
         ImageButton btnImgDaftar = (ImageButton)findViewById(R.id.btn_img_daftar);
         btnImgDaftar.setOnClickListener(this);
+        ImageButton btnImgFav = (ImageButton)findViewById(R.id.btn_img_favorit);
+        btnImgFav.setOnClickListener(this);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +150,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.btn_img_daftar:
                 Intent daftar = new Intent(MainActivity.this, DaftarSayaActivity.class);
                 startActivity(daftar);
+                break;
+            case R.id.btn_img_favorit:
+                Intent fav = new Intent(MainActivity.this, FavoriteActivity.class);
+                startActivity(fav);
                 break;
         }
     }
