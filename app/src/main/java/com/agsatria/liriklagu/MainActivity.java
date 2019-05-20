@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity
         btnImgDaftar.setOnClickListener(this);
         ImageButton btnImgFav = (ImageButton)findViewById(R.id.btn_img_favorit);
         btnImgFav.setOnClickListener(this);
+        ImageButton btnImgLagu = (ImageButton)findViewById(R.id.btn_img_lagu);
+        btnImgLagu.setOnClickListener(this);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +157,9 @@ public class MainActivity extends AppCompatActivity
                 Intent fav = new Intent(MainActivity.this, FavoriteActivity.class);
                 startActivity(fav);
                 break;
+            case R.id.btn_img_lagu:
+                Intent populer = new Intent(MainActivity.this, PopulerActivity.class);
+                startActivity(populer);
         }
     }
 }
