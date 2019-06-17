@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#A0D9F6"
     android:padding="8dp"
+    android:onClick="field1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">

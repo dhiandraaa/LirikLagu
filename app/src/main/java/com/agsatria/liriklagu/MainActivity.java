@@ -63,15 +63,15 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    public void sendNotif(View view) {
+    public void field1 (View view){
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_favorite_black_24dp)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_favorite_black_24dp))
+                .setSmallIcon(R.drawable.logo)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo))
                 .setContentTitle(getResources().getString(R.string.content_title))
                 .setContentText(getResources().getString(R.string.content_text))
                 .setSubText(getResources().getString(R.string.subtext))
-                .setAutoCancel(true);
+                .setOngoing(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
@@ -138,6 +138,27 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } */ else if (id == R.id.nav_send) {
+            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                    .setSmallIcon(R.drawable.logo)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo))
+                    .setContentTitle(getResources().getString(R.string.content_title))
+                    .setContentText(getResources().getString(R.string.content_text))
+                    .setSubText(getResources().getString(R.string.subtext))
+                    .setAutoCancel(true);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+                mBuilder.setChannelId(CHANNEL_ID);
+                if (mNotificationManager != null) {
+                    mNotificationManager.createNotificationChannel(channel);
+                }
+            }
+
+            Notification notification = mBuilder.build();
+            if (mNotificationManager != null) {
+                mNotificationManager.notify(NOTIFICAITION_ID, notification);
+            }
             finish();
         }
 
