@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity
 
         ImageButton btnImgDaftar = (ImageButton)findViewById(R.id.btn_img_daftar);
         btnImgDaftar.setOnClickListener(this);
-        ImageButton btnImgFav = (ImageButton)findViewById(R.id.btn_img_favorit);
-        btnImgFav.setOnClickListener(this);
+        //ImageButton btnImgFav = (ImageButton)findViewById(R.id.btn_img_favorit);
+        //btnImgFav.setOnClickListener(this);
         ImageButton btnImgLagu = (ImageButton)findViewById(R.id.btn_img_lagu);
         btnImgLagu.setOnClickListener(this);
 
@@ -127,13 +127,13 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
 
-        } else if (id == R.id.nav_gallery) {
-            Intent favorit = new Intent(MainActivity.this, FavoriteActivity.class);
-            startActivity(favorit);
         } else if (id == R.id.nav_slideshow) {
             Intent favorit = new Intent(MainActivity.this, DaftarSayaActivity.class);
             startActivity(favorit);
-        }  /*else if (id == R.id.nav_out) {
+        }  /*else if (id == R.id.nav_gallery) {
+            Intent favorit = new Intent(MainActivity.this, FavoriteActivity.class);
+            startActivity(favorit);
+        } else if (id == R.id.nav_out) {
             finish();
         } else if (id == R.id.nav_share) {
 
@@ -174,10 +174,10 @@ public class MainActivity extends AppCompatActivity
                 Intent daftar = new Intent(MainActivity.this, DaftarSayaActivity.class);
                 startActivity(daftar);
                 break;
-            case R.id.btn_img_favorit:
-                Intent fav = new Intent(MainActivity.this, FavoriteActivity.class);
-                startActivity(fav);
-                break;
+            // case R.id.btn_img_favorit:
+            //    Intent fav = new Intent(MainActivity.this, FavoriteActivity.class);
+            //    startActivity(fav);
+            //    break;
             case R.id.btn_img_lagu:
                 Intent populer = new Intent(MainActivity.this, PopulerActivity.class);
                 startActivity(populer);
